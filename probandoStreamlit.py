@@ -1,6 +1,11 @@
 
+import os
+
 import streamlit as st
 from PIL import Image
+
+# Obtener el directorio del script actual
+current_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Función para rotar imágenes
 def rotate_image(image_path, angle):
@@ -14,8 +19,16 @@ st.subheader("Estas son las últimas fotos de las niñas de la casa:")
 # Columnas con imagenes
 col1, col2 = st.columns(2, gap="large")
 
-fotos_nami = ["nami1.jpg", "nami2.jpg", "nami3.jpg"]
-fotos_lilia = ["lilia1.jpg", "lilia2.jpg", "lilia3.jpg", "lilia4.jpg", "lilia5.jpg"]
+# Definir las rutas completas a las imágenes
+fotos_nami = [os.path.join(current_dir, "nami1.JPG"),
+              os.path.join(current_dir, "nami2.JPG"),
+              os.path.join(current_dir, "nami3.JPG")]
+
+fotos_lilia = [os.path.join(current_dir, "lilia1.JPG"),
+               os.path.join(current_dir, "lilia2.JPG"),
+               os.path.join(current_dir, "lilia3.JPG"),
+               os.path.join(current_dir, "lilia4.JPG"),
+               os.path.join(current_dir, "lilia5.JPG")]
 
 with col1:
     st.subheader("Fotos de Nami")
